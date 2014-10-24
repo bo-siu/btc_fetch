@@ -1,0 +1,17 @@
+This project is designed for fetching and storing of bitcoin transaction data. As far now, the following platform is
+taken:
+
+1. OKCOIN   http://okcoin.cn
+2. HUOBI    http://huobi.com
+3. Bitstamp http://bitstamp.net
+
+Those data is fetched via REST by default. For https instance, we allow all https connection by making fake certificate.
+For data storing, we use mongodb as our database.
+
+If you wish, please consider donate for our effort.
+My BTC address is:  16Usys1mkmc154y5Yrv2nRMNXVNwy59Mzu
+
+Author: bo-siu
+Website: http://zhibt.com
+weibo: http://weibo.com/bitcoin168
+
