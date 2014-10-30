@@ -1,5 +1,6 @@
 package com.zhibt.platform.okcoin;
 
+import com.zhibt.db.mongo.model.DBImpl;
 import com.zhibt.db.mongo.model.TrasactionRecord;
 import com.zhibt.network.http.HTTPRequestWrapper;
 import com.zhibt.parser.OKBTCTradeParser;
@@ -29,9 +30,9 @@ public class OkCoinTradeProxy extends FetchTradeDataProxy {
         ArrayList<TrasactionRecord> datas = (ArrayList<TrasactionRecord>) new OKBTCTradeParser().parse(wrapper.doProcess());
         for (int i = 0; i < datas.size(); i++) {
             TrasactionRecord data = datas.get(i);
-            StringBuffer buffer = new StringBuffer();
         }
-        id = datas.get(datas.size() - 1).tid;
+        if (datas != null && datas.size() != 0)
+            id = datas.get(datas.size() - 1).tid;
         return datas;
     }
 

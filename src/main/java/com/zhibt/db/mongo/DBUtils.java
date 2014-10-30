@@ -15,6 +15,8 @@ import java.util.Collections;
  */
 public class DBUtils {
 
+    public static final String DB_TRADE_DATA = "db_trade_data";
+
     private static MongoClient mongoClient;
 
     private DBUtils() {
@@ -36,10 +38,10 @@ public class DBUtils {
     }
 
 
-    public static void replaceCollections(ArrayList<DBImpl> datas, String name, DB db) {
-        DBCollection collection = db.getCollection(name);
+    public static <T> void replaceCollections(ArrayList<T> datas, String collecName, DB db) {
+        DBCollection collection = db.getCollection(collecName);
         Gson gson = new Gson();
-        for (DBImpl data : datas) {
+        for (T data : datas) {
             collection.save((DBObject) JSON.parse(gson.toJson(data)));
         }
     }
