@@ -18,9 +18,8 @@ public class OkCoinTradeProxy extends FetchTradeDataProxy {
     public static int sleep = 25;
     private static long id = -1;
 
-
     @Override
-    public void fetchData() throws IOException {
+    public ArrayList<TrasactionRecord> fetchData() throws IOException {
         HTTPRequestWrapper wrapper = new HTTPRequestWrapper();
         if (id == -1) {
             wrapper.setmUrl(String.format(URL_TRADES, ""));
@@ -33,8 +32,7 @@ public class OkCoinTradeProxy extends FetchTradeDataProxy {
             StringBuffer buffer = new StringBuffer();
         }
         id = datas.get(datas.size() - 1).tid;
-
-
+        return datas;
     }
 
     public static String format(long times) {

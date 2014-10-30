@@ -7,5 +7,5 @@ import java.io.IOException;
  */
 public abstract class FetchTradeDataProxy {
 
-    public abstract void fetchData() throws IOException;
+    public abstract Object fetchData() throws IOException;
 }

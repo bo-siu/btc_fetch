@@ -1,15 +1,17 @@
 package com.zhibt.db.mongo.model;
 
+import com.mongodb.DBObject;
+import org.bson.BSONObject;
+
+import java.io.Serializable;
+import java.util.Map;
+import java.util.Set;
+
 /**
  * Created by boris on 14-10-24.
  */
-public class TrasactionRecord {
-    public double amount;
-    public long date;
-    public long tid;
-    public double price;
-    public String type;
-
+public class TrasactionRecord implements Serializable, DBImpl {
+    public transient static final String COLLECTION_NAME = "trade_data";
 
     public double getAmount() {
         return amount;
@@ -42,4 +44,20 @@ public class TrasactionRecord {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public double amount;
+    public long date;
+    public long tid;
+    public double price;
+    public String type;
+
+
 }
